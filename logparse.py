@@ -19,8 +19,9 @@ valrem = re.findall(r'.*is online.\n',logop)
 logfin = remlist(logfin,valrem)
 print(valrem)
 
-valrem2 = re.findall(r'^\S+\s+DCS.*',logop)
-print(valrem2)
+valrem = re.findall(r'(\[\d\d:\d\d]) DCS.*\n',logop)
+logfin = remlist(logfin,valrem)
+print(valrem)
 print(logfin)
 
 
