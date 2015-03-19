@@ -16,11 +16,18 @@ def logdecode(logop):
     logfin = remlist(logfin,valrem)
     valrem = re.findall(r'.*is online.\n',logop) #Continued
     logfin = remlist(logfin,valrem)
-    valrem = re.findall('\[\S+\s+DCS.*\n',logop) #remove DCS messages. Level up and OOC chat
+    valrem = re.findall('\[\d\d:\d\d\] DCS.*\n',logop) #remove DCS messages. Level up and OOC chat
+    print(valrem)
     logfin = remlist(logfin,valrem)
-    valrem = re.findall(' Total Xp: .*\n',logop) #Remove total XP after XP add
+    valrem = re.findall('Total Xp: .*\n',logop) #Remove total XP after XP add
     logfin = remlist(logfin,valrem)
     valrem = re.findall('\[\S+\s+ Second Life:.*\n',logop) #Remove music change, SL messages
+    logfin = remlist(logfin,valrem)
+    valrem = re.findall('\[\d\d:\d\d\] TOX.*\n',logop) #Remove tip messages, lamp post crap, etc
+    print(valrem)
+    logfin = remlist(logfin,valrem)
+    valrem = re.findall('\[\d\d:\d\d\] Toxic.*\n',logop) #Remove squid crap
+    print(valrem)
     logfin = remlist(logfin,valrem)
     return logfin
 
