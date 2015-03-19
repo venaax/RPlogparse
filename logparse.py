@@ -9,7 +9,7 @@ logfin = log.readlines()
 log.close()
 log = open("logs.txt")
 logop = log.read()
-
+print (logop)
 valrem = re.findall(r'.*is offline.\n',logop)
 print (valrem)
 
@@ -19,9 +19,12 @@ valrem = re.findall(r'.*is online.\n',logop)
 logfin = remlist(logfin,valrem)
 print(valrem)
 
-valrem = re.findall(r'(\[\d\d:\d\d]) DCS.*\n',logop)
+valrem = re.findall('\[\S+\s+DCS.*\n',logop)
 logfin = remlist(logfin,valrem)
+
 print(valrem)
+
+
 print(logfin)
 
 
