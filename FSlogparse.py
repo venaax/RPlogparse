@@ -1,5 +1,6 @@
 import re
 
+#A console program for taking logs from firestorm. Reads from logs.txt, outputs to cleanlog.txt
 def remlist(plist, valrem):
    return [value for value in plist if value not in valrem]
 print("MoarCores log parser. Logs are read from logs.txt\nAuthored By VenAAX")
