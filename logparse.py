@@ -19,7 +19,7 @@ valrem = re.findall(r'.*is online.\n',logop)
 logfin = remlist(logfin,valrem)
 print(valrem)
 
-velrem2 = re.findall(r'.*DCS.*\n',logop) #problem (NameError: name 'valrem2' is not defined)
+valrem2 = re.findall(r'^\S+\s+DCS.*',logop)
 print(valrem2)
 print(logfin)
 
