@@ -9,22 +9,33 @@ logfin = log.readlines()
 log.close()
 log = open("logs.txt")
 logop = log.read()
-print (logop)
-valrem = re.findall(r'.*is offline.\n',logop)
+log.close()
+
+valrem = re.findall(r'.*is offline.\n',logop) #remove online/offline messages
+logfin = remlist(logfin,valrem)
 print (valrem)
 
-logfin = remlist(logfin,valrem)
-
-valrem = re.findall(r'.*is online.\n',logop)
+valrem = re.findall(r'.*is online.\n',logop) #Continued
 logfin = remlist(logfin,valrem)
 print(valrem)
 
-valrem = re.findall('\[\S+\s+DCS.*\n',logop)
+valrem = re.findall('\[\S+\s+DCS.*\n',logop) #remove DCS messages. Level up and OOC chat
 logfin = remlist(logfin,valrem)
-
 print(valrem)
 
+valrem = re.findall(' Total Xp: .*\n',logop) #Remove total XP after XP add
+logfin = remlist(logfin,valrem)
+print(valrem)
 
+valrem = re.findall('\[\S+\s+ Second Life:.*\n',logop) #Remove music change, SL messages
+logfin = remlist(logfin,valrem)
+print(valrem)
+#leaving timestamps in chat
 print(logfin)
+
+logw = open("cleanlog.txt","w")
+logw.write (' '.join(logfin))
+logw.close()
+
 
 
